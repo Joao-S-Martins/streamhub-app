@@ -18,7 +18,8 @@
     "start": "./node_modules/http-server/bin/http-server .",
     "build": "npm run-script clean-build && ./node_modules/requirejs/bin/r.js -o ./tools/build.conf.js",
     "build-css": "mkdir -p dist && cat src/css/*.css >> dist/streamhub-input.min.css && cp -r src/css/fonts dist/fonts",
-    "clean-build": "rm -rf dist"
+    "clean-build": "rm -rf dist",
+    "link": "rm -rf lib/streamhub-sdk && ln -s ~/dev/streamhub-sdk/ lib/streamhub-sdk && rm -rf lib/streamhub-share && ln -s ~/Documents/personal/dev/streamhub-share/ lib/streamhub-share && rm -rf lib/streamhub-ui && ln -s ~/Documents/personal/dev/streamhub-ui/ lib/streamhub-ui"
   }
 }
 
