@@ -1,0 +1,24 @@
+{
+  "name": "streamhub-app",
+  "description": "Streamhub App Sandbox",
+  "author": "Livefyre <joao@livefyre.com>",
+  "contributors": {
+    "name": "Joao Martins",
+    "email": "joao@livefyre.com"
+  },
+  "version": "0.1.0",
+  "dependencies": {
+    "bower": "1.2.6",
+    "cajon": "~0.1.11",
+    "http-server": "*",
+    "phantom": "*"
+  },
+  "scripts": {
+    "postinstall": "./node_modules/bower/bin/bower install",
+    "start": "./node_modules/http-server/bin/http-server .",
+    "build": "npm run-script clean-build && ./node_modules/requirejs/bin/r.js -o ./tools/build.conf.js",
+    "build-css": "mkdir -p dist && cat src/css/*.css >> dist/streamhub-input.min.css && cp -r src/css/fonts dist/fonts",
+    "clean-build": "rm -rf dist"
+  }
+}
+
