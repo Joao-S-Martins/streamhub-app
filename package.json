@@ -11,15 +11,23 @@
     "bower": "1.2.6",
     "cajon": "~0.1.11",
     "http-server": "*",
+    "requirejs": "2.1.9",
     "phantom": "*"
   },
   "scripts": {
-    "postinstall": "./node_modules/bower/bin/bower install",
+    "postinstall": "./node_modules/bower/bin/bower install && npm run link",
     "start": "./node_modules/http-server/bin/http-server .",
-    "build": "npm run-script clean-build && ./node_modules/requirejs/bin/r.js -o ./tools/build.conf.js",
+    "build": "npm run clean-build && npm run build-repos",
     "build-css": "mkdir -p dist && cat src/css/*.css >> dist/streamhub-input.min.css && cp -r src/css/fonts dist/fonts",
     "clean-build": "rm -rf dist",
-    "link": "rm -rf lib/streamhub-sdk && ln -s ~/dev/streamhub-sdk/ lib/streamhub-sdk && rm -rf lib/streamhub-share && ln -s ~/Documents/personal/dev/streamhub-share/ lib/streamhub-share && rm -rf lib/streamhub-ui && ln -s ~/Documents/personal/dev/streamhub-ui/ lib/streamhub-ui"
+    "link": "rm -rf lib/streamhub-permalink && ln -s ~/Documents/personal/dev/streamhub-permalink/ lib/streamhub-permalink && rm -rf lib/streamhub-sdk && ln -s ~/dev/streamhub-sdk/ lib/streamhub-sdk && rm -rf lib/streamhub-share && ln -s ~/Documents/personal/dev/streamhub-share/ lib/streamhub-share && rm -rf lib/streamhub-ui && ln -s ~/Documents/personal/dev/streamhub-ui/ lib/streamhub-ui",
+    "build-repos": "npm run build-permalink && npm run build-sdk && npm run build-share && npm run build-ui && npm run build-wall && npm run copy-dists",
+    "build-permalink": "(cd lib/streamhub-permalink && npm run build)",
+    "build-sdk": "(cd lib/streamhub-sdk && npm run build)",
+    "build-share": "(cd lib/streamhub-share && npm run build)",
+    "build-ui": "(cd lib/streamhub-ui && npm run build)",
+    "build-wall": "(cd lib/streamhub-wall && npm run build)",
+    "copy-dists": "cp -a lib/streamhub-sdk/dist/ dist/ && cp -a lib/streamhub-ui/dist/ dist/ && cp -a lib/streamhub-share/dist/ dist/ && cp -a lib/streamhub-permalink/dist/ dist/ && cp -a lib/streamhub-wall/dist/ dist/"
   }
 }
 

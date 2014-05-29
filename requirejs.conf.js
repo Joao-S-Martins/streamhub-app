@@ -34,7 +34,8 @@ require.config({
     location: 'lib/streamhub-ui/src'
   },{
     name: 'streamhub-share',
-    location: 'lib/streamhub-share/src'
+    location: 'lib/streamhub-share/src',
+    main: 'poop'
   },{
     name: 'streamhub-sdk',
     location: 'lib/streamhub-sdk/src'

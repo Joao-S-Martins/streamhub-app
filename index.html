@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="dist/streamhub-sdk.min.css">
+    <style>
+    #view {
+        /*width:300px;*/
+    }
+
+    @font-face {
+      font-family: "fycons";
+      src:url("src/css/fonts/fycons.eot");
+      src:url("src/css/fonts/fycons.eot?#iefix") format("embedded-opentype"),
+        url("src/css/fonts/fycons.woff") format("woff"),
+        url("src/css/fonts/fycons.ttf") format("truetype"),
+        url("src/css/fonts/fycons.svg#fycons") format("svg");
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    [class^="fycon-"]:before,
+    [class*=" fycon-"]:before {
+      font-family: "fycons" !important;
+      font-style: normal !important;
+      font-weight: normal !important;
+      font-variant: normal !important;
+      text-transform: none !important;
+      speak: none;
+      line-height: inherit;
+      display: inline-block;
+      vertical-align: middle;
+      white-space: pre;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .fycon-source-facebook:before {
+      content: "\e067 ";
+    }
+
+    .fycon-source-twitter:before {
+      content: "\e075 ";
+    }
+
+    .fycon-format-link:before {
+      content: "\e037 ";
+    }
+
+    .lf-share {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        color: black;
+        text-align: center;
+        background-color: white;
+        border: 0;
+        position: absolute;
+        z-index: 1010;
+        display: block;
+        max-width: 276px;
+        background-clip: padding-box;
+        border-radius: 3px;
+        -webkit-box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.4);
+        -moz-box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.4);
+        -ms-box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.4);
+        -o-box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.4);
+        box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.4);
+        white-space: normal;
+    }
+
+    .lf-popover .lf-popover-arrow {
+        /*width: 0;
+        height: 0;*/
+        border-bottom: 12px solid white;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+    }
+    .lf-popover .lf-popover-arrow {
+        position: absolute;
+        left: 50%;
+        margin-left: 80px;
+        top: -30px;
+        background: transparent;
+        -webkit-box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.4);
+        -moz-box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.4);
+        -ms-box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.4);
+        -o-box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.4);
+        box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.4);
+    }
+
+    .lf-popover .lf-popover-arrow:after {
+        content: " ";
+        top: 1px;
+        margin-left: -11px;
+        border-top-width: 0;
+    }
+
+    .lf-menu-body {
+        width: 160px;
+    }
+
+    .lf-share .lf-twitter, .lf-share .lf-facebook, .lf-share .lf-menu-foot {
+        height: 36px;
+        font-size: 14px;
+        color: #fff;
+        line-height: 36px;
+        cursor: pointer;
+        list-style: none;
+    }
+
+    .lf-share .icon {
+        font-size: 16px;
+        margin-right: 6px;
+    }
+
+    .lf-share .lf-twitter {
+        background-color: #55acee;
+        border-radius: 3px 3px 0 0;
+    }
+
+    .lf-share .lf-facebook {
+        background-color: #385185;
+    }
+
+    .lf-share .lf-menu-foot {
+        color: #65676E;
+    }
+
+    .lf-share .lf-share-link {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .lf-popover.lf-pos-bottom {
+        position: absolute;
+        z-index: 1010;
+        transform-origin: center top;
+        margin-top: 10px;
+    }
+
+    /*.lf-popover.lf-pos-bottom .lf-popover-arrow {
+        background: url(../images/tail_up.png) 0 0 no-repeat;
+        height: 16px;
+        position: absolute;
+        z-index: 1010;
+        background-position-x: center;
+        left: auto;
+        top: -9px;
+        width: 100%;
+    }*/
+
+/*
+    .lf-share .lf-menu-foot {
+        color: #65676E;
+    }
+
+    .lf-share .lf-menu-foot textarea {
+        margin: 0;
+    }
+*/
+    .content {
+        padding: 0;
+    }
+    </style>
+</head>
+    <body>
+        <div id="view"></div>
+
+        <!--script src="lib/cajon/cajon.js" type="text/javascript"></script>
+        <script src="requirejs.conf.js" type="text/javascript"></script>
+        <script>
+            requirejs({
+                baseUrl: ""
+            });
+        </script-->
+
+        <script type="text/javascript" src="auth-delegates.v0.4.4-beta.min.js"></script>
+        <script type="text/javascript" src="dist/streamhub-sdk.min.js"></script>
+        <!--script type="text/javascript" src="dist/streamhub-ui.min.js"></script>
+        <script type="text/javascript" src="dist/streamhub-share.min.js"></script-->
+        <script type="text/javascript" src="dist/streamhub-permalink.min.js"></script>
+        <script type="text/javascript" src="dist/streamhub-wall.min.js"></script>
+
+        <script>
+        // var MediaWall = Livefyre.require('streamhub-wall');
+        //     $ = Livefyre.require('jquery');
+
+        HubPermalink.require([
+            'streamhub-permalink',
+            'streamhub-permalink/enums'
+        ],function (Permalink, permalinkEnums) {
+            debugger
+            var collection,
+                collection2,
+                view,
+                config = {
+                    assetServer: '/dev',
+                    authDelegateVersion: 'v0.4.4-beta',
+                    cdn: 'http://cdn.livefyre.com'
+                },
+                Collection = Livefyre.require('streamhub-sdk/collection'),
+                MediaWall = Livefyre.require('streamhub-wall');
+            // authUtil.getNewDelegates(config, $.proxy(function() {
+            //     initCollection();
+            // }));
+            (function initCollection() {
+                collection = new Collection({
+                    network: 'livefyre.com',
+                    environment: 't402.livefyre.com',
+                    id: 10772933
+                });
+                collection2 = new Collection({
+                    environment: 't402.livefyre.com',
+                    network: "labs-t402.fyre.co",
+                    siteId: "303827",
+                    articleId: "xbox-0"
+                });
+
+                // var sharer = new Sharer(config);//For the assetServer
+                // sharer.delegate(true);//HACK
+
+                view = new MediaWall({//View({
+                    initial: 3,
+                    showMore: 3,
+                    el: document.getElementById('view')
+                });
+                var archive = collection2.createArchive();
+                archive.read();
+                archive.pipe(view.more);
+            })();
+
+            //index.html?meaning=less#lf-content=t402.livefyre.com:10772933:26482715&not=something
+            var pl = Permalink,
+                key = permalinkEnums.KEYS.CONTENT;
+
+            //Set a default handler for permalinked content
+            // pl.default(key, function(content) {
+            //     console.log('Default handling for permalink content');
+            // })
+
+            //Try to get content from the permalink module
+            window.content = pl.get(key);
+            if (!window.content) {
+                //Attach listener incase content arrives
+                pl.on(key, function () {
+                    var content = pl.get(key);
+                    // pl.preventDefault(key);//Uncomment in to prevent the default handler
+                });
+            }
+        });
+        </script>
+    </body>
+</html>

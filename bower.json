@@ -8,6 +8,7 @@
     "cajon": "git://github.com/requirejs/cajon.git#~0.1.11",
     "auth": "git://github.com/Livefyre/auth.git",
     "auth-livefyre": "git://github.com/gobengo/auth-livefyre.git",
+    "streamhub-permalink": "git://github.com/Joao-S-Martins/streamhub-permalink.git#jaws_share",
     "streamhub-sdk": "git://github.com/Livefyre/streamhub-sdk.git#ks_share_try_3",
     "streamhub-share": "git://github.com/Joao-S-Martins/streamhub-share.git#alpha",
     "streamhub-ui": "git://github.com/Joao-S-Martins/streamhub-ui.git#alpha",
@@ -15,9 +16,5 @@
   },
   "devDependencies": {
     "almond": "~0.2.5"
-  },
-  "resolutions": {
-    "streamhub-sdk": "ks_share_try_3",
-    "view": "~1.1"
   }
 }
