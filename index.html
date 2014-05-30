@@ -2,11 +2,13 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="dist/streamhub-sdk.min.css">
+    <!--link rel="stylesheet" type="text/css" href="dist/streamhub-ui.min.css"-->
+    <link rel="stylesheet" type="text/css" href="dist/streamhub-share.min.css">
     <style>
     #view {
         /*width:300px;*/
     }
-
+/*
     @font-face {
       font-family: "fycons";
       src:url("src/css/fonts/fycons.eot");
@@ -68,7 +70,7 @@
 
     .lf-popover .lf-popover-arrow {
         /*width: 0;
-        height: 0;*/
+        height: 0;*//*
         border-bottom: 12px solid white;
         border-left: 6px solid transparent;
         border-right: 6px solid transparent;
@@ -134,7 +136,7 @@
         z-index: 1010;
         transform-origin: center top;
         margin-top: 10px;
-    }
+    }*/
 
     /*.lf-popover.lf-pos-bottom .lf-popover-arrow {
         background: url(../images/tail_up.png) 0 0 no-repeat;
@@ -187,7 +189,6 @@
             'streamhub-permalink',
             'streamhub-permalink/enums'
         ],function (Permalink, permalinkEnums) {
-            debugger
             var collection,
                 collection2,
                 view,
