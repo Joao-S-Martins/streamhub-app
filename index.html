@@ -45,10 +45,20 @@
                     cdn: 'http://cdn.livefyre.com'
                 },
                 Collection = Livefyre.require('streamhub-sdk/collection'),
-                MediaWall = Livefyre.require('streamhub-wall');
-            // authUtil.getNewDelegates(config, $.proxy(function() {
-            //     initCollection();
-            // }));
+                MediaWall = Livefyre.require('streamhub-wall'),
+                qaConfig = {
+                    "collectionMeta":"eyJ0eXAiOiJqd3QiLCJhbGciOiJIUzI1NiJ9.eyJ0aXRsZSI6ImJsYWggZmFhYWhhaGFhIiwidXJsIjoiaHR0cDpcL1wvb3Jhbmdlc2FyZWdyZWF0LmNvbVwvcWFfZXh0X3YzXC8_cD0yMTAiLCJ0YWdzIjoiIiwiY2hlY2tzdW0iOiIxZjc3YzJmNTI4MGZlNDNjMjZkNWU3Y2JjYTc3OWZjOSIsImFydGljbGVJZCI6MjEwfQ.MvfXiV8hEgXd2iGu1o3Dc3XTQEOtaL361AeF25skZLM",
+                    "checksum":"1f77c2f5280fe43c26d5e7cbca779fc9",
+                    "siteId":"290596",
+                    "articleId":210,
+                    "disableThirdPartyAnalytics":true,
+                    "betaBanner":true,
+                    "el":"comments",
+                    environment: 'qa.livefyre.com',
+                    network: "livefyre.com"
+                },
+                qaCollection;
+
             (function initCollection() {
                 collection = new Collection({
                     network: 'livefyre.com',
@@ -61,6 +71,7 @@
                     siteId: "303827",
                     articleId: "xbox-0"
                 });
+                qaCollection = new Collection(qaConfig);
 
                 // var sharer = new Sharer(config);//For the assetServer
                 // sharer.delegate(true);//HACK
@@ -70,7 +81,7 @@
                     showMore: 3,
                     el: document.getElementById('view')
                 });
-                var archive = collection2.createArchive();
+                var archive = qaCollection.createArchive();
                 archive.read();
                 archive.pipe(view.more);
             })();
